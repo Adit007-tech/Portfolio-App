@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "484105114194",
+    "project_id": "portfolio-57737",
+    "storage_bucket": "portfolio-57737.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484105114194:android:9fb4c2c2de84d6d278058b",
+        "android_client_info": {
+          "package_name": "com.example.moneycontrol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBP0KlhmTzlbKGHNO7rlEU79a--qwOPaa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
