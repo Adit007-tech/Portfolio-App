@@ -36,10 +36,17 @@ class _register_pageState extends State<register_page> {
     }else if(!email.contains("@")){
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please enter valid email and Password")));
     }
+    setState(() {
+      isloading = false;
+    });
     // check if password and confirm password match
     if(passowrd != confirmPassword){
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Password doesn't match")));
     }
+
+    setState(() {
+      isloading = false;
+    });
     // attempt to signUp
     if(email != null && passowrd != null){
       await _auth_service.signUpwithEmailAndPassword(email, passowrd);
@@ -75,10 +82,7 @@ class _register_pageState extends State<register_page> {
             fontWeight: FontWeight.bold,
             color: Colors.blue
         ),),
-            Container(
-              margin: const EdgeInsets.only(top: 100),
-              width: 250,
-            ),
+            Padding(padding: EdgeInsets.only(top: 80)),
             const Text("Create your account",style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -89,78 +93,34 @@ class _register_pageState extends State<register_page> {
               width: 250,
               child: Column(
                 children: [
-                  // TextFormField(
-                  //   controller: _name,
-                  //   decoration: InputDecoration(
-                  //       focusColor: Colors.grey,
-                  //       enabled: true,
-                  //       focusedBorder: OutlineInputBorder(
-                  //           borderRadius: BorderRadius.circular(20),
-                  //           borderSide: const BorderSide(
-                  //               width: 2,
-                  //               color: Colors.black
-                  //           )
-                  //       ),
-                  //       hintText: "Enter your Name"
-                  //   ),
-                  // ),
-                  Container(
-                    height: 10,
-                  ),
+                  const Padding(padding: EdgeInsets.only(top: 10)),
                   TextFormField(
                     controller: _email,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
+                        label: Text("Email"),
                         focusColor: Colors.grey,
-                        enabled: true,
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.black
-                            )
-                        ),
                         hintText: "Enter your email"
                     ),
                   ),
-                  Container(
-                    height: 10,
-                  ),
+                  const Padding(padding: EdgeInsets.only(top: 10)),
                   TextFormField(
                     controller: _password,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
+                        label: Text("password"),
                         focusColor: Colors.grey,
-                        enabled: true,
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.black
-                            )
-                        ),
                         hintText: "Enter your password"
                     ),
                   ),
-                  Container(
-                    height: 10,
-                  ),
+                  const Padding(padding: EdgeInsets.only(top: 10)),
                   TextFormField(
                     controller: _confirmfpassword,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         focusColor: Colors.grey,
-                        enabled: true,
-                        focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
-                            borderSide: const BorderSide(
-                                width: 2,
-                                color: Colors.black
-                            )
-                        ),
+                        label: Text("Confirm password"),
                         hintText: "Confirm your password"
                     ),
                   ),
-                  Container(
-                    height: 70,
-                  ),
+                  const Padding(padding: EdgeInsets.only(top: 60)),
                   MaterialButton(
                     minWidth: 200,
                     height: 40,
