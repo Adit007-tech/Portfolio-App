@@ -59,116 +59,117 @@ class _login_pageState extends State<login_page> {
         // title: Text("Login"),
       ),
       body: Center(
-        child: Column(
-          children: [
-                  const Text("Login",
-                    style: TextStyle(
-                            fontSize: 45,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                            fontStyle: FontStyle.italic
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+                    const Text("Login",
+                      style: TextStyle(
+                              fontSize: 45,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                      ),
                     ),
-                  ),
-                  const Text("Login to your account ",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey
+                    const Text("Login to your account ",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey
+                      ),
                     ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 80),
-                    width: 250,
-                    child: Column(
-                      children: [
-                        const Icon(Icons.person,size: 40),
-                        const Padding(padding: EdgeInsets.only(bottom: 20)),
-                        TextFormField(
-                          controller: _email,
-                          decoration: const InputDecoration(
-                              focusColor: Colors.grey,
-                              label: Text("Email"),
-                              hoverColor: Colors.lightBlue,
-                              hintText: "Enter your email"
-                          ),
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 20)),
-                        TextFormField(
-                          controller: _password,
-                          decoration: const InputDecoration(
-                              label: Text("Password"),
-                              hoverColor: Colors.lightBlue,
-                              focusColor: Colors.grey,
-                              hintText: "Enter password"
-                          ),
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 50)),
-                        MaterialButton(
-                            minWidth: 200,
-                            height: 40,
-                            color: Colors.lightBlueAccent,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)
+                    Container(
+                      margin: const EdgeInsets.only(top: 80),
+                      width: 250,
+                      child: Column(
+                        children: [
+                          const Icon(Icons.person,size: 40),
+                          const Padding(padding: EdgeInsets.only(bottom: 20)),
+                          TextFormField(
+                            controller: _email,
+                            decoration: const InputDecoration(
+                                focusColor: Colors.grey,
+                                label: Text("Email"),
+                                hoverColor: Colors.lightBlue,
+                                hintText: "Enter your email"
                             ),
-                            onPressed: (){
-                              // Navigator.push(context, MaterialPageRoute(builder: (context) => const home_page()));
-                              login();
-                            }, child: isloading
-                            ? const CircularProgressIndicator(color: Colors.white)
-                            : const Text("LOGIN",style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white
-                        ),)
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 20)),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // const Text("Don't have any account, "),
-                            // InkWell work same as GestureDetector
-                            GestureDetector(
-                                child: const Text("Don't have any account, SignUp",style: TextStyle(
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold
-                                ),),
-                                onTap: (){
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 20)),
+                          TextFormField(
+                            controller: _password,
+                            decoration: const InputDecoration(
+                                label: Text("Password"),
+                                hoverColor: Colors.lightBlue,
+                                focusColor: Colors.grey,
+                                hintText: "Enter password"
+                            ),
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 50)),
+                          MaterialButton(
+                              minWidth: 200,
+                              height: 40,
+                              color: Colors.lightBlueAccent,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)
+                              ),
+                              onPressed: (){
+                                // Navigator.push(context, MaterialPageRoute(builder: (context) => const home_page()));
+                                login();
+                              }, child: isloading
+                              ? const CircularProgressIndicator(color: Colors.white)
+                              : const Text("LOGIN",style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white
+                          ),)
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 20)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // const Text("Don't have any account, "),
+                              // InkWell work same as GestureDetector
+                              GestureDetector(
+                                  child: const Text("Don't have any account, SignUp",style: TextStyle(
+                                      color: Colors.blue,
+                                      fontWeight: FontWeight.bold
+                                  ),),
+                                  onTap: (){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context)=> const register_page()));
+                                  })
+                            ],
+                          ),
+                          const Padding(padding: EdgeInsets.only(top: 20)),
+                          MaterialButton(
+                              minWidth: 200,
+                              height: 40,
+                              color: Colors.lightBlueAccent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              onPressed: () async {
+                                try{
+                                  signInWithGoogle();
                                   Navigator.push(context,
-                                      MaterialPageRoute(builder: (context)=> const register_page()));
-                                })
-                          ],
-                        ),
-                        const Padding(padding: EdgeInsets.only(top: 20)),
-                        MaterialButton(
-                            minWidth: 200,
-                            height: 40,
-                            color: Colors.lightBlueAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
+                                      MaterialPageRoute(builder: (context)=> const home_page()));
+                                }catch(e){
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text("Something went wrong $e"))
+                                  );
+                                }
+                              }, child: const Text("SignIn with Google",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
                             ),
-                            onPressed: () async {
-                              try{
-                                signInWithGoogle();
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context)=> const home_page()));
-                              }catch(e){
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text("Something went wrong $e"))
-                                );
-                              }
-                            }, child: const Text("SignIn with Google",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                          ),
-                        )
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                          )
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+        ),
             ),
     );
   }

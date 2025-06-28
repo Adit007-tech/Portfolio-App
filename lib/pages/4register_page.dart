@@ -75,73 +75,75 @@ class _register_pageState extends State<register_page> {
       appBar: AppBar(
       ),
       body: Center(
-        child: Column(
-          children: [
-            const Text("Registration",style: TextStyle(
-            fontSize: 45,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue
-        ),),
-            Padding(padding: EdgeInsets.only(top: 80)),
-            const Text("Create your account",style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue
-            ),),
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              width: 250,
-              child: Column(
-                children: [
-                  const Padding(padding: EdgeInsets.only(top: 10)),
-                  TextFormField(
-                    controller: _email,
-                    decoration: const InputDecoration(
-                        label: Text("Email"),
-                        focusColor: Colors.grey,
-                        hintText: "Enter your email"
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.only(top: 10)),
-                  TextFormField(
-                    controller: _password,
-                    decoration: const InputDecoration(
-                        label: Text("password"),
-                        focusColor: Colors.grey,
-                        hintText: "Enter your password"
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.only(top: 10)),
-                  TextFormField(
-                    controller: _confirmfpassword,
-                    decoration: const InputDecoration(
-                        focusColor: Colors.grey,
-                        label: Text("Confirm password"),
-                        hintText: "Confirm your password"
-                    ),
-                  ),
-                  const Padding(padding: EdgeInsets.only(top: 60)),
-                  MaterialButton(
-                    minWidth: 200,
-                    height: 40,
-                    color: Colors.lightBlueAccent,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Text("Registration",style: TextStyle(
+              fontSize: 45,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue
+          ),),
+              Padding(padding: EdgeInsets.only(top: 80)),
+              const Text("Create your account",style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey
+              ),),
+              Container(
+                margin: const EdgeInsets.only(top: 20),
+                width: 250,
+                child: Column(
+                  children: [
+                    const Padding(padding: EdgeInsets.only(top: 10)),
+                    TextFormField(
+                      controller: _email,
+                      decoration: const InputDecoration(
+                          label: Text("Email"),
+                          focusColor: Colors.grey,
+                          hintText: "Enter your email"
                       ),
-                      onPressed: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => const home_page()));
-                        signUp();
-                      }, child: isloading
-                      ? const CircularProgressIndicator(color: Colors.white,)
-                      : const Text("Register",style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    fontSize: 20
-                  ),))
-                ],
-              ),
-            )
-          ],
+                    ),
+                    const Padding(padding: EdgeInsets.only(top: 10)),
+                    TextFormField(
+                      controller: _password,
+                      decoration: const InputDecoration(
+                          label: Text("password"),
+                          focusColor: Colors.grey,
+                          hintText: "Enter your password"
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(top: 10)),
+                    TextFormField(
+                      controller: _confirmfpassword,
+                      decoration: const InputDecoration(
+                          focusColor: Colors.grey,
+                          label: Text("Confirm password"),
+                          hintText: "Confirm your password"
+                      ),
+                    ),
+                    const Padding(padding: EdgeInsets.only(top: 60)),
+                    MaterialButton(
+                      minWidth: 200,
+                      height: 40,
+                      color: Colors.lightBlueAccent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                        ),
+                        onPressed: (){
+                          // Navigator.push(context, MaterialPageRoute(builder: (context) => const home_page()));
+                          signUp();
+                        }, child: isloading
+                        ? const CircularProgressIndicator(color: Colors.white,)
+                        : const Text("Register",style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      fontSize: 20
+                    ),))
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

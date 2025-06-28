@@ -44,14 +44,14 @@ class _home_pageState extends State<home_page> {
           items: const[
             BottomNavigationBarItem(
                 icon: Icon(
-                    Icons.post_add,
+                    Icons.build,
                     color: Colors.white,
                 ),
               label: "Post",
             ),
             BottomNavigationBarItem(
                 icon: Icon(
-                    Icons.developer_mode,
+                    Icons.info,
                   color: Colors.white,
 
                 ),

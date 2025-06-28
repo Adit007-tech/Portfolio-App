@@ -42,8 +42,16 @@ class _note_appState extends State<note_app> {
 
                 // get column you want
                 final body = note['body'];
-
-                return Text(body);
+                return Center(
+                  child: Column(
+                    children: [
+                      Text(body,style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                    ],
+                  ),
+                );
               }
             );
           }
