@@ -49,6 +49,9 @@ class _login_pageState extends State<login_page> {
       setState(() {
         isloading = false;
       });
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Unable to Login $e"))
+      );
     }
   }
 
