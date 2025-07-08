@@ -52,7 +52,7 @@ class _register_pageState extends State<register_page> {
       await _auth_service.signUpwithEmailAndPassword(email, passowrd);
       Navigator.push(context, MaterialPageRoute(builder: (context) => const home_page()));
     }else{
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Unable to Register")));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Unable to Register")));
     }
     setState(() {
       isloading = false;

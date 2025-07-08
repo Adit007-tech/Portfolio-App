@@ -7,12 +7,14 @@ class about_info extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text("About me",textAlign: TextAlign.center,style: TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
+      body: Center(
+        child: Text("About me",textAlign: TextAlign.center,style: TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
 
-      ),
+        ),
+        ),
       ),
 
     );
