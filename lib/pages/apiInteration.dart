@@ -47,8 +47,10 @@ class _apiIntegrationState extends State<apiIntegration> {
               // ),
               // title: Text(name['first']+" "+name['last'],style: TextStyle(fontWeight: FontWeight.bold),),
               // subtitle: Text(email),
-              title: Text(user.name.first+" "+user.name.last,style: TextStyle(fontWeight: FontWeight.bold),),
-              subtitle: Text(gender),
+              // title: Text(user.name.first+" "+user.name.last,style: TextStyle(fontWeight: FontWeight.bold),),
+              title: Text(user.FullName,style: TextStyle(fontWeight: FontWeight.bold),),
+              subtitle: Text(user.phone),
+              trailing: Text(gender),
               tileColor: color,
             );
       }),
