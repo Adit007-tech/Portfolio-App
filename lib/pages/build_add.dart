@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:moneycontrol/pages/state.dart';
 import 'package:moneycontrol/pages/wallPaper_page.dart';
 
 import 'Weather_page.dart';
 import 'apiInteration.dart';
 import 'chatGpt.dart';
+import 'movie_page.dart';
 import 'note_app.dart';
 
 class build_app extends StatelessWidget {
@@ -22,7 +24,7 @@ class build_app extends StatelessWidget {
               end: Alignment.bottomLeft,
               colors: [
                 Colors.deepPurpleAccent,
-                Colors.white,
+                Colors.redAccent,
               ],
             ),
           ),
@@ -185,7 +187,38 @@ class build_app extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         Navigator.push(context,
-                                            MaterialPageRoute(builder: (context) => chatGPT()));
+                                            MaterialPageRoute(builder: (context) => movieApi()));
+                                        // Navigator.push(context,
+                                        //     MaterialPageRoute(builder: (context) => const login_page()));
+                                      },
+                                      // Navigator.push(context,
+                                      //     MaterialPageRoute(builder: (context) => const login_page()));
+                                      child: const Text("Movie Api",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: MediaQuery.of(context).size.width * 0.8,
+                                    height: MediaQuery.of(context).size.height * 0.07,
+                                    decoration: BoxDecoration(
+                                      color: Colors.blue,
+                                      borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    child: MaterialButton(
+                                      minWidth: Material.defaultSplashRadius,
+                                      height: 40,
+                                      color: Colors.lightBlueAccent,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(context,
+                                            MaterialPageRoute(builder: (context) => first()));
                                         // Navigator.push(context,
                                         //     MaterialPageRoute(builder: (context) => const login_page()));
                                       },
