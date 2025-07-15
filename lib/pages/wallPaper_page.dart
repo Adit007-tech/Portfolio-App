@@ -91,8 +91,8 @@ class _wallPaperState extends State<wallPaper> {
                 )
             ),
             Container(
-              color: Colors.black,
-              height: 50,
+              width: MediaQuery.of(context).size.width,
+              height: 60,
               child: Center(
                   child: InkWell(
                     onTap: (){
@@ -101,11 +101,13 @@ class _wallPaperState extends State<wallPaper> {
                     child: Text("Load more",
                       style: TextStyle(
                           fontSize: 30,
-                          color: Colors.white
+                          color: Colors.white,
+                        fontWeight: FontWeight.bold
                       ),
                     ),
-                  )
+                  ),
               ),
+              padding: EdgeInsets.only(bottom: 20),
             ),
             // Padding(padding: EdgeInsets.only(bottom: 20)),
           ],

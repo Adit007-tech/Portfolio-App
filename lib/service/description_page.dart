@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moneycontrol/utils/text.dart';
 
 class DescriptionPage extends StatelessWidget {
+
   final String name, description, bannerurl, posterurl, vote, launch_on;
 
   const DescriptionPage(
@@ -11,7 +12,8 @@ class DescriptionPage extends StatelessWidget {
         required this.bannerurl,
         required this.posterurl,
         required this.vote,
-        required this.launch_on});
+        required this.launch_on
+      });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
