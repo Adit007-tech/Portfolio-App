@@ -8,27 +8,25 @@ import '../movie_widgets/topratedmovies.dart';
 import '../movie_widgets/tvshow.dart';
 
 class movieApi extends StatefulWidget{
-
   @override
   State<movieApi> createState() => _movieApiState();
 }
 
 class _movieApiState extends State<movieApi> {
-
   final String APIKEY = '2e2595d4ccfa3ae8d31eaca993001af2';
-  final readaccesstoken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTI1OTVkNGNjZmEzYWU4ZDMxZWFjYTk5MzAwMWFmMiIsIm5iZiI6MTc1MjQwODQ5Mi4zODYsInN1YiI6IjY4NzNhMWFjYWY2YjUyODUwOGVkODFkNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0q00JiFhlgO1z_ksyqpjGS6c4PW7E8KqzuX2o1zTnkU';
+  final String readaccesstoken = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyZTI1OTVkNGNjZmEzYWU4ZDMxZWFjYTk5MzAwMWFmMiIsIm5iZiI6MTc1MjQwODQ5Mi4zODYsInN1YiI6IjY4NzNhMWFjYWY2YjUyODUwOGVkODFkNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.0q00JiFhlgO1z_ksyqpjGS6c4PW7E8KqzuX2o1zTnkU';
 
-  List<dynamic> trendingmovies = [];
-  List<dynamic> topratedmovies = [];
-  List<dynamic> populerTV = [];
+  List trending = [];
+  List toprated = [];
+  List tv = [];
 
   @override
   void initState(){
-    super.initState();
     loadmovie();
+    super.initState();
   }
 
-  Future<void> loadmovie() async{
+  loadmovie() async{
     TMDB tmdbWithCustomLogs = TMDB(
         ApiKeys(APIKEY, readaccesstoken),
         logConfig: ConfigLogger(
@@ -40,15 +38,15 @@ class _movieApiState extends State<movieApi> {
     Map topratedmovies = await tmdbWithCustomLogs.v3.movies.getTopRated();;
     Map tvshow = await tmdbWithCustomLogs.v3.tv.getPopular();
 
-    // print(trendingresult);
+    print(trendingresult);
 
     setState(() {
-      trendingmovies = trendingresult['results'];
-      topratedmovies = topratedmovies['results'];
-      populerTV = tvshow['results'];
+      trending = trendingresult['results'];
+      toprated = topratedmovies['results'];
+      tv = tvshow['results'];
     });
 
-    print(trendingmovies);
+    // print(trendingresult);
   }
 
   @override
@@ -62,10 +60,9 @@ class _movieApiState extends State<movieApi> {
         ),
         body: ListView(
           children: [
-            topratedMovies(toprated: topratedmovies),
-            trendingMovies(trending: trendingmovies),
-            tvShow(tvshow: populerTV)
-
+            trendingMovies(trending: trending),
+            topratedMovies(toprated: toprated),
+            tvShow(tvshow: tv)
           ],
         )
     );

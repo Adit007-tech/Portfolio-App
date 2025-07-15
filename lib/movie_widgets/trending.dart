@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../service/description_page.dart';
 import '../utils/text.dart';
 
 class trendingMovies extends StatelessWidget {
@@ -25,7 +26,7 @@ class trendingMovies extends StatelessWidget {
                   itemBuilder: (context, index){
                     return InkWell(
                       onTap: (){
-
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DescriptionPage()));
                       },
                       child: Container(
                         width: 150,
