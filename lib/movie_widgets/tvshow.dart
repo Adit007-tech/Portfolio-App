@@ -10,11 +10,10 @@ class tvShow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          modifiedText(text: "Popular TV Shows  ✨"),
+          modifiedText(text: "Popular TV Shows  ❤️"),
           Padding(padding: EdgeInsets.only(top: 10)),
           Container(
             height: 270,
@@ -26,6 +25,7 @@ class tvShow extends StatelessWidget {
                     onTap: (){
                     },
                     child: Container(
+                        padding: EdgeInsets.all(10),
                         width: 150,
                         child: Column(
                           children: [

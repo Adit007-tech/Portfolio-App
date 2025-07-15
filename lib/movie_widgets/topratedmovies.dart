@@ -17,6 +17,7 @@ class topratedMovies extends StatelessWidget {
           modifiedText(text: "Top Rated  Movies  ✨"),
           Padding(padding: EdgeInsets.only(top: 10)),
           Container(
+            padding: EdgeInsets.all(10),
             height: 270,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
