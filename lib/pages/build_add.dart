@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moneycontrol/pages/wallPaper_page.dart';
 
+import '../Authentication/auth_service.dart';
 import 'Weather_page.dart';
 import 'apiInteration.dart';
 import 'chatGpt.dart';
@@ -215,11 +216,11 @@ class build_app extends StatelessWidget {
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      onPressed: () {
-                                        Navigator.push(context,
-                                            MaterialPageRoute(builder: (context) => chatGPT()));
-                                        // Navigator.push(context,
-                                        //     MaterialPageRoute(builder: (context) => const login_page()));
+                                      onPressed: () async {
+                                          bool check = await auth_service().authenticateLocally();
+                                          if(check){
+                                            Navigator.push(context,MaterialPageRoute(builder: (context) => chatGPT()));
+                                          }
                                       },
                                       // Navigator.push(context,
                                       //     MaterialPageRoute(builder: (context) => const login_page()));

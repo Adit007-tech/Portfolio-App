@@ -10,7 +10,6 @@ class tvShow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -26,6 +25,7 @@ class tvShow extends StatelessWidget {
                     onTap: (){
                     },
                     child: Container(
+                        padding: EdgeInsets.all(10),
                         width: 150,
                         child: Column(
                           children: [
