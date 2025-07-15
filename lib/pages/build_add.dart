@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moneycontrol/pages/state.dart';
 import 'package:moneycontrol/pages/wallPaper_page.dart';
 
 import 'Weather_page.dart';
@@ -193,7 +192,7 @@ class build_app extends StatelessWidget {
                                       },
                                       // Navigator.push(context,
                                       //     MaterialPageRoute(builder: (context) => const login_page()));
-                                      child: const Text("Movie Api",
+                                      child: const Text("Movie API",
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
@@ -218,7 +217,7 @@ class build_app extends StatelessWidget {
                                       ),
                                       onPressed: () {
                                         Navigator.push(context,
-                                            MaterialPageRoute(builder: (context) => first()));
+                                            MaterialPageRoute(builder: (context) => chatGPT()));
                                         // Navigator.push(context,
                                         //     MaterialPageRoute(builder: (context) => const login_page()));
                                       },

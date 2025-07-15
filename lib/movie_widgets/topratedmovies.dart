@@ -24,6 +24,7 @@ class topratedMovies extends StatelessWidget {
                 itemBuilder: (context, index){
                   return InkWell(
                     onTap: (){
+
                     },
                     child: Container(
                         width: 150,

@@ -14,7 +14,7 @@ class tvShow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          modifiedText(text: "Popular TV Shows  ✨"),
+          modifiedText(text: "Popular TV Shows  ❤️"),
           Padding(padding: EdgeInsets.only(top: 10)),
           Container(
             height: 270,
