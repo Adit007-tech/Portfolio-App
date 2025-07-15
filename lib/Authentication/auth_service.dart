@@ -37,6 +37,7 @@ class auth_service{
     final user = session?.user;
     return user?.email;
   }
+
   final LocalAuthentication localAuth = LocalAuthentication();
   Future<bool> authenticateLocally() async {
     bool isAuthenticate = false;
